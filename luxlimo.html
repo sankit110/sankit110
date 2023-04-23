@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Add this link to the head of your HTML file -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css">
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+    body {
+      width: 100%;
+      height: 100vh;
+      background-image: url(/limo2-modified.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      /* margin: 0; */
+      /* padding: 0; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10% auto;
+    }
+
+    .card {
+      max-width: 100%;
+      width: 100%;
+      height: 350px;
+      position: relative;
+      /* padding: 3rem 2rem; */
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+
+
+      color: white;
+      justify-self: center;
+      border-radius: 20px;
+      /*     border: 1px solid rgba(255,255,255,0.2); */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgb(0 0 0 / 47%);
+    }
+
+    .card .card-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      justify-content: space-between;
+    }
+
+    .card .card-content .bottom h2 {
+      font-size: 2.6rem;
+    }
+
+    .card .top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.8rem;
+      align-items: center;
+    }
+
+    .card .top .name {
+      font-size: 2.5rem;
+    }
+
+    .card .top .date {
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+    .card .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card .bottom .bookmark {
+      margin-left: 5rem;
+      border: 2px solid white;
+      padding: 0.7rem;
+      border-radius: 50%;
+    }
+
+    .card .bottom .bookmark .bookmark-icn {
+      fill: white;
+    }
+
+    .card .bottom .bookmark:hover {
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .card .card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .card .card-bg .bg-img {
+      height: 100%;
+      object-fit: cover;
+      vertical-align: middle;
+    }
+
+    .card .shadow {
+      position: absolute;
+      width: 90%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: -15px;
+      z-index: -2;
+      border-radius: 20px;
+      filter: blur(15px);
+    }
+
+    .card .shadow .shadow-img {
+      margin-top: 3rem;
+      object-fit: cover;
+    }
+
+    #wrap {
+      position: fixed;
+      ;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      background-color: black
+    }
+
+    .custom-button {
+      height: 45px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.25);
+      border: 0px;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 5px;
+      font-size: 15px;
+
+
+    }
+
+    .custom-button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+
+    }
+
+    .bi {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <img src="/logo_white.png" style="max-width: 60%; margin-top: 20px;">
+
+        <span class="slogan" style="font-size: 1.5rem;">"Elevating Your Transportation
+          Experience"</span>
+
+        <div style="margin-top: 15px;">
+          <h2><i class="bi bi-geo-alt"></i>San Francisco Bay Area</h2>
+          <a href="tel:+16502962487" style="color: white;">
+            <h2><i class="bi bi-telephone-forward"></i>+1 650-296-2487
+            </h2>
+          </a>
+          <a href="mailto:blackluxurylimo20@gmail.com" style="color: white;">
+            <h2><i class="bi bi-envelope"></i>blackluxurylimo20@gmail.com
+            </h2>
+          </a>
+
+        </div>
+        <div style="display: flex; margin-top: 25px;">
+          <button class="custom-button" onclick="saveContact()" style="flex-basis: 50%;"><i
+              class="bi bi-download"></i>Save Details</button>
+          <button class="custom-button" onclick="location.href='tel:+16502962487'" style="flex-basis: 25%;"><i
+              class="bi bi-telephone-forward"></i>Call Us</button>
+          <button class="custom-button" onclick="location.href='mailto:blackluxurylimo20@gmail.com'"
+            style="flex-basis: 25%;"><i class="bi bi-envelope"></i>Email Us</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+  function saveContact() {
+    // Create a new Contact object
+    var contact = new Contact();
+
+    // Set the contact details
+    contact.firstName = "Luxury";
+    contact.lastName = "Limo LLC";
+    contact.email = "blackluxurylimo20@gmail.com";
+    contact.phone = "+16502962487";
+
+    // Save the contact
+    contact.save().then(function () {
+      alert("Contact saved successfully!");
+    }).catch(function (error) {
+      console.error("Failed to save contact:", error);
+    });
+  }
+</script>
