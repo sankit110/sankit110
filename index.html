@@ -202,7 +202,7 @@
 
         </div>
         <div style="display: flex; margin-top: 25px;">
-          <button class="custom-button" onclick="saveContact()" style="flex-basis: 50%;"><i
+          <button class="custom-button" id="downloadVcfBtn" style="flex-basis: 50%;"><i
               class="bi bi-download"></i>Save Details</button>
           <button class="custom-button" onclick="location.href='tel:+16502962487'" style="flex-basis: 25%;"><i
               class="bi bi-telephone-forward"></i>Call Us</button>
@@ -218,6 +218,16 @@
 </html>
 
 <script>
+  const downloadVcfBtn = document.getElementById('downloadVcfBtn');
+downloadVcfBtn.addEventListener('click', () => {
+  const downloadLink = document.createElement('a');
+  downloadLink.href = '/assets/LuxuryLimo.vcf'; // Replace with the actual file path of your .vcf file
+  downloadLink.download = 'LuxuryLimo.vcf'; // Replace with the desired file name and .vcf extension
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+});
+
   function saveContact() {
     // Create a new Contact object
     var contact = new Contact();
